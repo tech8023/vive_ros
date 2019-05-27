@@ -451,7 +451,7 @@ class VIVEnode
 
 VIVEnode::VIVEnode(int rate)
   : loop_rate_(rate)
-  , nh_()
+  , nh_("~")
   , tf_broadcaster_()
   , tf_listener_()
   , vr_()
@@ -466,10 +466,10 @@ VIVEnode::VIVEnode(int rate)
 
 #ifdef USE_IMAGE
   image_transport::ImageTransport it(nh_);
-  sub_L = it.subscribe("/image_left", 1, &VIVEnode::imageCb_L, this);
-  sub_R = it.subscribe("/image_right", 1, &VIVEnode::imageCb_R, this);
-  sub_i_L = nh_.subscribe("/camera_info_left", 1, &VIVEnode::infoCb_L, this);
-  sub_i_R = nh_.subscribe("/camera_info_right", 1, &VIVEnode::infoCb_R, this);
+  sub_L = it.subscribe("image_left", 1, &VIVEnode::imageCb_L, this);
+  sub_R = it.subscribe("image_right", 1, &VIVEnode::imageCb_R, this);
+  sub_i_L = nh_.subscribe("camera_info_left", 1, &VIVEnode::infoCb_L, this);
+  sub_i_R = nh_.subscribe("camera_info_right", 1, &VIVEnode::infoCb_R, this);
   pMainApplication = new CMainApplicationMod( 0, NULL );
   if (!pMainApplication->BInit()){
     pMainApplication->Shutdown();
