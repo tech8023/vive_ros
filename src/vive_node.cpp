@@ -11,7 +11,7 @@ void handleDebugMessages(const std::string &msg) {ROS_DEBUG(" [VIVE] %s",msg.c_s
 void handleInfoMessages(const std::string &msg) {ROS_INFO(" [VIVE] %s",msg.c_str());}
 void handleErrorMessages(const std::string &msg) {ROS_ERROR(" [VIVE] %s",msg.c_str());}
 
-//#define USE_IMAGE
+#define USE_IMAGE
 
 #define USE_OPENGL
 //#define USE_VULKAN
@@ -81,7 +81,7 @@ class CMainApplicationMod : public CMainApplication{
       if ( m_iTrackedControllerCount != m_iTrackedControllerCount_Last || m_iValidPoseCount != m_iValidPoseCount_Last ){
         m_iValidPoseCount_Last = m_iValidPoseCount;
         m_iTrackedControllerCount_Last = m_iTrackedControllerCount;
-        dprintf( "PoseCount:%d(%s) Controllers:%d\n", m_iValidPoseCount, m_strPoseClasses.c_str(), m_iTrackedControllerCount );
+        //dprint( "PoseCount:%d(%s) Controllers:%d\n", m_iValidPoseCount, m_strPoseClasses.c_str(), m_iTrackedControllerCount );
       }
       UpdateHMDMatrixPose();
       ROS_INFO_THROTTLE(3.0,"RenderFrame() @ %d [fps]", [](int& cin, int dur){int ans = cin; cin=0; return ans/dur;}(RenderFrame_hz_count, 3));
@@ -302,7 +302,7 @@ class CMainApplicationMod : public CMainApplication
       if ( m_iTrackedControllerCount != m_iTrackedControllerCount_Last || m_iValidPoseCount != m_iValidPoseCount_Last ) {
         m_iValidPoseCount_Last = m_iValidPoseCount;
         m_iTrackedControllerCount_Last = m_iTrackedControllerCount;
-        dprintf( "PoseCount:%d(%s) Controllers:%d\n", m_iValidPoseCount, m_strPoseClasses.c_str(), m_iTrackedControllerCount );
+        //dprintf( "PoseCount:%d(%s) Controllers:%d\n", m_iValidPoseCount, m_strPoseClasses.c_str(), m_iTrackedControllerCount );
       }
       UpdateHMDMatrixPose();
       m_nFrameIndex = ( m_nFrameIndex + 1 ) % m_swapchainImages.size();
