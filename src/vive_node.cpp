@@ -551,8 +551,8 @@ bool VIVEnode::setOriginCB(std_srvs::Empty::Request& req, std_srvs::Empty::Respo
 void VIVEnode::set_feedback(sensor_msgs::JoyFeedbackConstPtr msg) {
   if(msg->type == 1 /* TYPE_RUMBLE */) {
     vr_.TriggerHapticPulse(msg->id, 0, (int)(msg->intensity));
-    for(int i=0;i<16;i++)
-      vr_.TriggerHapticPulse(i, 0, (int)(msg->intensity));
+    // for(int i=0;i<16;i++)
+    //   vr_.TriggerHapticPulse(i, 0, (int)(msg->intensity));
   }
 }
 
