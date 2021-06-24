@@ -33,7 +33,7 @@ class CMainApplicationMod : public CMainApplication{
     , hmd_fov(110*M_PI/180) {
 //      m_bShowCubes = false;
       for(int i=0;i<LR;i++){
-        cam_f[i][X] = cam_f[i][Y] = 600;
+        cam_f[i][X] = cam_f[i][Y] = 750;
       }
       RenderFrame_hz_count = 0;
     };
